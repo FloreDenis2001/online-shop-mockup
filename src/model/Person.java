@@ -20,6 +20,14 @@ public abstract class Person {
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Person(String text){
         String [] path = text.split(",");
         this.id=Integer.parseInt(path[0]);

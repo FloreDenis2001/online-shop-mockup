@@ -46,5 +46,12 @@ public class ControllerPersons {
         }
     }
 
+    public int nextId(){
+        if(this.arrayList.size()>=0){
+            return this.arrayList.get(this.arrayList.size()-1).getId()+1;
+        }
+        return 1;
+    }
+
 
 }

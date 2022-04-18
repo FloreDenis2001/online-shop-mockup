@@ -1,6 +1,8 @@
 package controller;
 
 import model.OrderDetails;
+import model.Orders;
+import model.Products;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,8 +12,8 @@ public class ControllerOrderDetails {
 
     private ArrayList<OrderDetails> orderDetails;
 
-    public ControllerOrderDetails(){
-        orderDetails=new ArrayList<>();
+    public ControllerOrderDetails() {
+        orderDetails = new ArrayList<>();
         this.load();
     }
 
@@ -28,10 +30,41 @@ public class ControllerOrderDetails {
         }
     }
 
-    public void afisare(){
-        for (OrderDetails x: orderDetails){
+    public void afisare() {
+        for (OrderDetails x : orderDetails) {
             System.out.println(x.toString());
         }
     }
 
+    public int nextId() {
+        if (this.orderDetails.size() > 0) {
+            return this.orderDetails.get(this.orderDetails.size() - 1).getOrderId() + 1;
+        }
+        return 1;
+    }
+
+
+    public void addOrderdetails(OrderDetails o) {
+        this.orderDetails.add(o);
+    }
+
+
+
+    public ArrayList<OrderDetails> details(int ordersId) {
+        ArrayList<OrderDetails> orderDetails1 = new ArrayList<>();
+        for(OrderDetails orders:orderDetails){
+
+            if(orders.getOrderId()==ordersId){
+
+                orderDetails1.add(orders);
+
+            }
+        }
+        return orderDetails1;
+    }
+
+
 }
+
+
+

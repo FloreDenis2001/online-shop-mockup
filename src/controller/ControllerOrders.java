@@ -1,5 +1,6 @@
 package controller;
 
+import model.OrderDetails;
 import model.Orders;
 
 import java.io.File;
@@ -33,6 +34,15 @@ public class ControllerOrders {
             System.out.println(x.toString());
         }
     }
+    public int nextId(){
+
+      if(this.orders.size()>0){
+
+          return  this.orders.get(this.orders.size()-1).getId()+1;
+      }
+      return 1;
+    }
+
 
 
 }

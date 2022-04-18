@@ -36,12 +36,14 @@ public class ControllerProducts {
 
     public Products findByName (String name){
         for(Products x:products){
-            if(x.getName().comparTo(name)==0){
+            if(x.getName().compareTo(name)==0){
                 return x;
             }
         }
         return null;
     }
+
+
 
 
 
