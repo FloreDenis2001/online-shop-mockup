@@ -1,0 +1,15 @@
+1,Denis,20,floredenis@yahoo.com,javacurs1,client,2
+2,Marius,27,marius@yahoo.com,javacurs2,client,5
+3,Alin,35,alin@yahoo.com,javacurs3,admin,Administrator
+4,Razvan,32,razvan@yahoo.com,javacurs4,client,8
+5,Ana,40,razvan@yahoo.com,javacurs5,admin,Moderator
+6,Lorena,29,lorena@yahoo.com,javacurs6,admin,Helper
+7,Nicoleta,24,nicoleta@yahoo.com,javacurs7,client,4
+8,Sebastian,25,sebastian@yahoo.com,javacurs8,client,1
+9,Ionela,27,ionela@yahoo.com,javacurs9,client,3
+10,Cristian,31,cristian@yahoo.com,javacurs10,admin,Fondator
+11,Miruna,19,miruna@yahoo.com,javacurs11,admin,Moderator
+12,Daria,21,daria@yahoo.com,javacurs12,client,1
+13,Mihaela,29,mihaela@yahoo.com,javacurs13,client,10
+14,Maria,26,maria@yahoo.com,javacurs14,admin,Administrator
+15,Gratian,22,gratian@yahoo.com,javacurs15,client,4
