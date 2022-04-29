@@ -3,5 +3,5 @@
 3,pc,10000,descriere3,5
 4,laptop,1500,descriere4,6
 5,boxe audio,2500,descriere5,8
-6,monitor ,800,descriere6,4
-7,consola ,5000,descriere6,11
+6,monitor,800,descriere6,4
+7,consola,5000,descriere6,11

@@ -28,23 +28,29 @@ public class ControllerProducts {
         }
     }
 
-    public void afisare(){
-        for (Products x : products){
+    public void afisare() {
+        for (Products x : products) {
             System.out.println(x.toString());
         }
     }
 
-    public Products findByName (String name){
-        for(Products x:products){
-            if(x.getName().compareTo(name)==0){
+    public Products findByName(String name) {
+        for (Products x : products) {
+            if (x.getName().equals(name)) {
                 return x;
             }
         }
         return null;
     }
 
-
-
+    public Products findById(int id) {
+        for (Products p : products) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
 
 
 }

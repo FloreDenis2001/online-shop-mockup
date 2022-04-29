@@ -10,6 +10,7 @@ import model.OrderDetails;
 import model.Orders;
 import model.Products;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ViewClient {
@@ -26,6 +27,8 @@ public class ViewClient {
         client = new Client(1, "Denis", 20, "floredenis907@yahoo.com", "javacurs1", 4);
         scanner = new Scanner(System.in);
         controllerProducts = new ControllerProducts();
+        controllerOrders = new ControllerOrders();
+        controllerOrderDetails = new ControllerOrderDetails();
         orders = new Orders(controllerOrders.nextId(), this.client.getId(), 0);
     }
 
@@ -49,10 +52,14 @@ public class ViewClient {
                 case 1:
                     controllerProducts.afisare();
                     break;
-                case 2:adaugaCos();
+                case 2:
+                    adaugaCos();
                     break;
-                case 3 :afisareCos();
-                break;
+                case 3:
+                    afisareCos();
+                    break;
+                default:
+                    meniu();
             }
         }
     }
@@ -68,14 +75,14 @@ public class ViewClient {
             //ETAPA2 :CEREM CANTIATEA
             System.out.println("Cantitatea dorita : ");
             int cantitate = Integer.parseInt(scanner.nextLine());
-            //ce
+
             if (p.getStock() >= cantitate) {
 
                 OrderDetails orderDetails = new OrderDetails(controllerOrderDetails.nextId(), orders.getId(), p.getId(), p.getPrice() * cantitate, cantitate);
 
                 controllerOrderDetails.addOrderdetails(orderDetails);
 
-                p.setStock(p.getStock()-cantitate);
+                p.setStock(p.getStock() - cantitate);
 
             } else {
                 System.out.println("Stock epuizat");
@@ -86,9 +93,14 @@ public class ViewClient {
 
 
     }
-    public void afisareCos(){
 
-
-
+    public void afisareCos() {
+        System.out.println("Elementele din cos sunt : ");
+        ArrayList<OrderDetails> orderDetails = controllerOrderDetails.details(this.orders.getId());
+        for (OrderDetails detail : orderDetails) {
+            Products product = controllerProducts.findById(detail.getProductId());
+            System.out.println(String.format("Produsl :%s  nr buc %d costa %d",
+                    product.getName(), detail.getCantitate(), detail.getPrice()));
+        }
     }
 }
