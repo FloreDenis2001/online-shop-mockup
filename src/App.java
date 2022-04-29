@@ -5,5 +5,6 @@ public class App {
     public static void main(String[] args) {
         ViewClient viewClient=new ViewClient();
         viewClient.adaugaCos();
+        viewClient.afisareCos();
     }
 }

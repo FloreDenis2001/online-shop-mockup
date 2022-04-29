@@ -18,7 +18,7 @@ public class ControllerPersons {
 
     public void load() {
         try {
-            File f = new File("C:\\Users\\flore\\Desktop\\ApplicationPolimorfism\\src\\res\\persons.txt");
+            File f = new File("src/res/persons.txt");
             Scanner scanner = new Scanner(f);
             while (scanner.hasNextLine()) {
 

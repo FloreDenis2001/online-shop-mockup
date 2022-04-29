@@ -17,7 +17,7 @@ public class ControllerProducts {
 
     public void load() {
         try {
-            File f = new File("C:\\Users\\flore\\Desktop\\ApplicationPolimorfism\\src\\res\\products.txt");
+            File f = new File("src/res/products.txt");
             Scanner scanner = new Scanner(f);
             while (scanner.hasNextLine()) {
                 String lime = scanner.nextLine();

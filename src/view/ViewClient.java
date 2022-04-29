@@ -68,11 +68,11 @@ public class ViewClient {
         System.out.println("Introduceti produsul dorit ");
         String productName = scanner.nextLine();
 
-        ///etapa 1 luam produsul din controler
+        ///Etapa 1 luam produsul din controller
         Products p = controllerProducts.findByName(productName);
 
         if (p != null) {
-            //ETAPA2 :CEREM CANTIATEA
+            //Etapa 2 cerem cantitatea
             System.out.println("Cantitatea dorita : ");
             int cantitate = Integer.parseInt(scanner.nextLine());
 
@@ -99,7 +99,7 @@ public class ViewClient {
         ArrayList<OrderDetails> orderDetails = controllerOrderDetails.details(this.orders.getId());
         for (OrderDetails detail : orderDetails) {
             Products product = controllerProducts.findById(detail.getProductId());
-            System.out.println(String.format("Produsl :%s  nr buc %d costa %d",
+            System.out.println(String.format("Produsl :%s  nr buc %d costa %.2f",
                     product.getName(), detail.getCantitate(), detail.getPrice()));
         }
     }
