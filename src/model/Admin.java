@@ -32,5 +32,8 @@ public class Admin extends Person {
         return text;
     }
 
-
+    public String toSave() {
+        String text = super.getId() + "," + super.getAge() + "," + super.getName() + "," + super.getPassword() + "," +super.getType()+","+this.roles;
+        return text;
+    }
 }

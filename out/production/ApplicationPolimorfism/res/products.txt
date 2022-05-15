@@ -1,7 +1,7 @@
-1,telefon,2000,descirere1,3
-2,televizor,3000,descriere2,2
-3,pc,10000,descriere3,5
-4,laptop,1500,descriere4,6
-5,boxe audio,2500,descriere5,8
-6,monitor,800,descriere6,4
-7,consola,5000,descriere6,11
+1,telefon,2000.0,descirere1,11
+2,televizor,3000.0,descriere2,6
+3,pc,10000.0,descrierePc,5
+4,laptop,1500.0,descriere4,6
+5,boxe audio,2500.0,descriere5,8
+6,monitor,800.0,descriere6,34
+7,consola,9400.0,descriere6,11

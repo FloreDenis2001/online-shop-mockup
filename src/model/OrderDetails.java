@@ -67,9 +67,9 @@ public class OrderDetails {
 
 
     public String toString() {
-        String text = "Id : " + this.id + "\n";
-        text+="Id Comanda : "+this.orderId+"\n";
-        text+="Id Produs : "+this.productId+"\n";
+//        String text = "Id : " + this.id + "\n";
+        String text="Id Comanda : "+this.orderId+"\n";
+//        text+="Id Produs : "+this.productId+"\n";
         text+="Price : "+this.price+"\n";
         text+="Cantitate : "+this.cantitate+"\n";
         return text;

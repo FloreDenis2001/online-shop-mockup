@@ -3,7 +3,7 @@ package model;
 public class Orders {
     private int id;
     private int customerId;
-    private  float price;
+    private float price;
 
     public Orders(int id, int customerId, float price) {
         this.id = id;
@@ -11,11 +11,11 @@ public class Orders {
         this.price = price;
     }
 
-    public Orders(String text){
-        String []path=text.split(",");
-        this.id=Integer.parseInt(path[0]);
-        this.customerId=Integer.parseInt(path[1]);
-        this.price=Integer.parseInt(path[2]);
+    public Orders(String text) {
+        String[] path = text.split(",");
+        this.id = Integer.parseInt(path[0]);
+        this.customerId = Integer.parseInt(path[1]);
+        this.price = Integer.parseInt(path[2]);
     }
 
     public int getId() {
@@ -42,11 +42,16 @@ public class Orders {
         this.price = price;
     }
 
+    public String toSave() {
+        String text = this.id + "," + this.customerId + "," + this.price;
+        return text;
+    }
+
     @Override
     public String toString() {
-        String text ="ID: "+this.id+"\n";
-        text+="Client ID: "+this.customerId+"\n";
-        text+="Price : "+this.price+"\n";
+        String text = "ID: " + this.id + "\n";
+        text += "Client ID: " + this.customerId + "\n";
+        text += "Price : " + this.price + "\n";
         return text;
     }
 }

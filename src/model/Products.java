@@ -68,11 +68,16 @@ public class Products {
 
     @Override
     public String toString(){
-        String text = "Id"+this.id+"\n";
-        text+="Name : "+this.name+"\n";
-        text+="Price : "+this.price+"\n";
+//        String text = "Id"+this.id+"\n";
+        String text="Name : "+this.name+"\n";
+        text+="Price : "+this.price+" /buc \n";
         text+="Description : "+this.descriptions+"\n";
-        text+="Stock  : "+this.stock+"\n";
+//        text+="Stock  : "+this.stock+"\n";
+        return text;
+    }
+
+    public String toSave() {
+        String text =this.id+","+this.name+","+this.price+","+this.descriptions+","+this.stock;
         return text;
     }
 }

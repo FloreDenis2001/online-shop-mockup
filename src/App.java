@@ -1,10 +1,9 @@
-import controller.ControllerPersons;
-import view.ViewClient;
+import view.ViewLogin;
+import view.ViewModerator;
 
 public class App {
     public static void main(String[] args) {
-        ViewClient viewClient=new ViewClient();
-        viewClient.adaugaCos();
-        viewClient.afisareCos();
+        ViewLogin viewLogin=new ViewLogin();
+        viewLogin.play();
     }
 }

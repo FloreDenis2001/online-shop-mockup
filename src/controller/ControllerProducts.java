@@ -1,9 +1,12 @@
 package controller;
 
 
+import model.Person;
 import model.Products;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -52,5 +55,49 @@ public class ControllerProducts {
         return null;
     }
 
+    public void addStock(String name, int cantitate) {
+        for (Products x : products) {
+            if (x.getName().equals(name)) {
+                x.setStock(x.getStock() + cantitate);
+            }
+        }
+    }
+
+    public void editDescription(String name, String description) {
+        for (Products x : products) {
+            if (x.getName().equals(name)) {
+                x.setDescriptions(description);
+            }
+        }
+    }
+
+    public void updatePrice(String name, float price) {
+        for (Products x : products) {
+            if (x.getName().equals(name)) {
+                x.setPrice(price);
+            }
+        }
+    }
+
+    public String toSaveProducts() {
+        String text = "";
+        for (Products x : products) {
+            text += x.toSave() + "\n";
+        }
+        return text;
+    }
+
+    public void save() {
+        try {
+            File file = new File("src/res/products.txt");
+            FileWriter fileWriter = new FileWriter(file);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(toSaveProducts());
+            printWriter.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

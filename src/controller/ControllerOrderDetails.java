@@ -2,7 +2,6 @@ package controller;
 
 import model.OrderDetails;
 import model.Orders;
-import model.Products;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -30,11 +29,6 @@ public class ControllerOrderDetails {
         }
     }
 
-    public void afisare() {
-        for (OrderDetails x : orderDetails) {
-            System.out.println(x.toString());
-        }
-    }
 
     public int nextId() {
         if (this.orderDetails.size() > 0) {
@@ -44,17 +38,12 @@ public class ControllerOrderDetails {
     }
 
 
-    public void addOrderdetails(OrderDetails o) {
-        this.orderDetails.add(o);
-    }
-
-
 
     public ArrayList<OrderDetails> details(int ordersId) {
         ArrayList<OrderDetails> orderDetails1 = new ArrayList<>();
-        for(OrderDetails orders:orderDetails){
+        for (OrderDetails orders : orderDetails) {
 
-            if(orders.getOrderId()==ordersId){
+            if (orders.getOrderId() == ordersId) {
 
                 orderDetails1.add(orders);
 
@@ -64,7 +53,95 @@ public class ControllerOrderDetails {
     }
 
 
+    public OrderDetails getOrderDetailsById(int orderId, int productId) {
+        for (OrderDetails orders : orderDetails) {
+            if (orders.getProductId() == productId && orders.getOrderId() == orderId) {
+                return orders;
+            }
+        }
+        return null;
+    }
+
+
+    public void removedetails(int orderId, int productId) {
+        this.orderDetails.remove(getOrderDetailsById(orderId, productId));
+    }
+
+    //todo CRUD
+
+    public void afisare() {
+        for (OrderDetails x : orderDetails) {
+            System.out.println(x.toString());
+        }
+    }
+
+    public OrderDetails findById(int id) {
+        for (OrderDetails x : orderDetails) {
+            if (x.getId() == id) {
+                return x;
+            }
+        }
+        return null;
+    }
+
+    public void addOrderDetails(OrderDetails orderDetailsNou) {
+        OrderDetails x = findById(orderDetailsNou.getId());
+        if (x == null) {
+            this.orderDetails.add(orderDetailsNou);
+        } else {
+            System.out.println("Exista deja detalii despre comanda cu ID respectiv");
+        }
+    }
+
+
+    public void deleteOrderDetails(int id) {
+        OrderDetails c = findById(id);
+        if (c != null) {
+            this.orderDetails.remove(c);
+        } else {
+            System.out.println("Nu exista detalii despre comanda respectiv");
+        }
+
+    }
+
+    public void updateOrderDetails(int orderId, int productId, int cantitate, float priceNou) {
+        OrderDetails orderDetails = getOrderDetailsById(orderId, productId);
+        orderDetails.setCantitate(cantitate);
+        orderDetails.setPrice(priceNou);
+    }
+
+    public OrderDetails getOrderDetailsByOrderId(int orderId) {
+        for (OrderDetails orders : orderDetails) {
+            if (orders.getOrderId() == orderId) {
+                return orders;
+            }
+        }
+        return null;
+    }
+
+
+
+    public int[] bestSellProduct() {
+
+        int[] frecventa = new int[1000];
+        for (int i = 0; i < orderDetails.size(); i++) {
+            frecventa[orderDetails.get(i).getProductId()]++;
+        }
+
+        return frecventa;
+
+
+    }
+
+
 }
+
+
+
+
+
+
+
 
 
 
