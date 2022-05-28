@@ -26,7 +26,7 @@ class ControllerProductsTest {
     public void addStockTest(){
         ControllerProducts controllerProducts=new ControllerProducts();
         controllerProducts.addStock("monitor",14);
-        assertEquals(24,controllerProducts.findByName("monitor").getStock());
+        assertEquals(48,controllerProducts.findByName("monitor").getStock());
     }
 
     @Test

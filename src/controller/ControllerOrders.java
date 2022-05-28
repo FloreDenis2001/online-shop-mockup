@@ -118,6 +118,21 @@ public class ControllerOrders {
             e.printStackTrace();
         }
     }
+    public Orders findByCustomerId(int customerId){
+        for (Orders x:orders){
+            if(x.getCustomerId()==customerId){
+                return x;
+            }
+        }
+        return null;
+    }
 
+    public void updatePriceByCustomerId(int orderId,int customerId,float pretNou){
+        for (Orders x : orders){
+             if(x.getCustomerId()==customerId && x.getId()==orderId){
+                 x.setPrice(pretNou);
+             }
+        }
+    }
 
 }

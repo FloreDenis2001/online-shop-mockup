@@ -5,7 +5,9 @@ import controller.ControllerOrders;
 import controller.ControllerPersons;
 import controller.ControllerProducts;
 import model.Admin;
+import model.Orders;
 import model.Person;
+import model.Products;
 
 import java.util.Scanner;
 
@@ -73,11 +75,24 @@ public class ViewFondator {  private ControllerOrderDetails controllerOrderDetai
 
     public void updateOrder(){
         System.out.println("Introduceti numele clientului : ");
-        String numeclient= scanner.nextLine();
-        System.out.println("Selectati produsul : ");
-        String numeProdus= scanner.nextLine();
+        String numeClient= scanner.nextLine();
+        Person client = controllerPersons.findByName(numeClient);
+        int idOrder=controllerOrders.findByCustomerId(client.getId()).getId();
+
+
+        System.out.println("Introduceti numele produsului : ");
+        String numeprodus=scanner.nextLine();
+        int productId=controllerProducts.findByName(numeprodus).getId();
+
         System.out.println("Introduceti noua cantitate : ");
         int cantitate=Integer.parseInt(scanner.nextLine());
+
+        controllerOrderDetails.updatePretbyName(idOrder,productId,cantitate);
+
+        float lastSum=controllerOrderDetails.moneyDetails(idOrder);
+
+        controllerOrders.updatePriceByCustomerId(idOrder,client.getId(),lastSum);
+
 
     }
 }

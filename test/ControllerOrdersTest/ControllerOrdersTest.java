@@ -53,8 +53,13 @@ class ControllerOrdersTest {
         ControllerOrders controllerOrders=new ControllerOrders();
         //Adauga cateva comenzi in array inainte ... !!!
         ArrayList<Orders> personOrders=new ArrayList<>();
+    }
 
-
+    @Test
+    public void updatePrice(){
+        ControllerOrders controllerOrders=new ControllerOrders();
+        controllerOrders.updatePriceByCustomerId(2,4,7000);
+        assertEquals(7000,controllerOrders.findById(2).getPrice());
     }
 
 }

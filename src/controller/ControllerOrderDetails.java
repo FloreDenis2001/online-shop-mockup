@@ -1,7 +1,6 @@
 package controller;
 
 import model.OrderDetails;
-import model.Orders;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -36,7 +35,6 @@ public class ControllerOrderDetails {
         }
         return 1;
     }
-
 
 
     public ArrayList<OrderDetails> details(int ordersId) {
@@ -120,7 +118,6 @@ public class ControllerOrderDetails {
     }
 
 
-
     public int[] bestSellProduct() {
 
         int[] frecventa = new int[1000];
@@ -133,6 +130,28 @@ public class ControllerOrderDetails {
 
     }
 
+    public void updatePretbyName(int idOrder, int idProdus, int cantitateNoua) {
+
+        for (OrderDetails x : orderDetails) {
+            if (x.getProductId() == idProdus && x.getOrderId() == idOrder) {
+                double pretProdus = x.getPrice() / x.getCantitate();
+                x.setCantitate(cantitateNoua);
+                x.setPrice((float) pretProdus * cantitateNoua);
+            }
+        }
+
+
+    }
+
+    public float moneyDetails(int idOrder){
+        float sum=0;
+        for (OrderDetails x:orderDetails){
+            if(x.getOrderId()==idOrder){
+                sum=sum+x.getPrice();
+            }
+        }
+        return sum;
+    }
 
 }
 

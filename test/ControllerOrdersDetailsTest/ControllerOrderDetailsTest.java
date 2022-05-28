@@ -69,5 +69,10 @@ class ControllerOrderDetailsTest {
         assertEquals(2, frecventa[3]);
     }
 
-
+   @Test
+    public void updatePrice(){
+        ControllerOrderDetails controllerOrderDetails=new ControllerOrderDetails();
+        controllerOrderDetails.updatePretbyName(1,1,4);
+        assertEquals(4000,controllerOrderDetails.findById(1).getPrice());
+   }
 }
